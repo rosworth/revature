@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+      crossorigin="anonymous"
+    ></script>
+    <title></title>
+  </head>
+
+  <body>
+    <ul id="list">
+      <li>cat</li>
+      <li>dog</li>
+    </ul>
+    <button id="btn">button</button>
+    <ul id="list2">
+      <li>cat</li>
+      <li>dog</li>
+    </ul>
+    <button id="remove" onclick="func2">remove</button>
+
+    <script>
+      document.getElementById("btn").addEventListener("click", func1);
+      function func1() {
+        var elem = document.createElement("LI");
+        //var tnode = document.createTextNode("fish");
+        //elem.appendChild(tnode);
+        elem.appendChild(document.createTextNode("fish"));
+
+        var list = document.getElementById("list");
+        list.insertBefore(elem, list.childNodes[1]);
+      }
+
+      function func2() {
+        var elem = document.getElementById("list2");
+        elem.remove();
+      }
+    </script>
+  </body>
+</html>

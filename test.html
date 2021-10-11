@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Remove a child node</title>
+    </head>
+    <body>
+        <h1 id="head">This is an h1 heading</h1>
+
+        <p id="para">This is a paragraph</p>
+
+        <ul id="list">
+            <li>List element one</li>
+            <li>List element two</li>
+            <li>List element three</li>
+            <li>List element four</li>
+        </ul>
+        <button onclick="removeLastNode()">Remove List Element</button>
+        <script>
+            function removeLastNode()
+            {
+                var parent = document.getElementById("list");
+                var childToRemove = parent.children[parent.children.length-1]
+                parent.removeChild(childToRemove);
+            }
+        </script>
+    </body>
+</html>

@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+      crossorigin="anonymous"
+    ></script>
+
+    <title></title>
+  </head>
+
+  <body>
+    <div>
+      <table>
+        <tr>
+          <td>
+            <input id="fName" type="text" placeholder="First Name" />
+          </td>
+          <td>
+            <input id="lName" type="text" placeholder="Last Name" />
+          </td>
+          <td>
+            <label id="fullName"></label>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <input id="age" type="number" placeholder="Age" />
+          </td>
+          <td>
+            <label id="ageDisp"></label>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">Gender</td>
+          <td>
+            <label id="genderDisp"></label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input name="gender" type="radio" value="male" /><label>Male</label>
+          </td>
+          <td>
+            <input name="gender" type="radio" value="female" /><label
+              >Female</label
+            >
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input id="btn" type="button" value="Add Person" />
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2"><hr /></td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <input id="dept" type="text" placeholder="Department" />
+          </td>
+          <td>
+            <label id="deptDisp"></label>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="2">
+            <input id="salary" type="number" placeholder="Salary" />
+          </td>
+          <td>
+            <label id="salDisp"></label>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input id="addEmp" type="button" value="Add Employee" />
+          </td>
+        </tr>
+      </table>
+      <script>
+        document.getElementById("btn").addEventListener("click", displayPerson);
+        document
+          .getElementById("addEmp")
+          .addEventListener("click", displayEmployee);
+        class Person {
+          constructor(fName, lName, gender, age) {
+            this.fName = fName;
+            this.lName = lName;
+            this.gender = gender;
+            this.age = age;
+          }
+        }
+
+        class Employee extends Person {
+          constructor(fName, lName, gender, age, dept, salary) {
+            super(fName, lName, gender, age);
+            this.dept = dept;
+            this.salary = salary;
+          }
+        }
+
+        function displayPerson() {
+          var person1 = new Person(
+            document.getElementById("fName").value,
+            document.getElementById("lName").value,
+            document.querySelector("input[name=gender]:checked").value,
+            document.getElementById("age").value
+          );
+          document.getElementById(
+            "fullName"
+          ).innerText = `${person1.fName} ${person1.lName}`;
+          document.getElementById("ageDisp").innerText = person1.age;
+          document.getElementById("genderDisp").innerText = person1.gender;
+        }
+
+        function displayEmployee() {
+          var person1 = new Employee(
+            document.getElementById("fName").value,
+            document.getElementById("lName").value,
+            document.querySelector("input[name=gender]:checked").value,
+            document.getElementById("age").value,
+            document.getElementById("dept").value,
+            document.getElementById("salary").value
+          );
+          document.getElementById(
+            "fullName"
+          ).innerText = `${person1.fName} ${person1.lName}`;
+          document.getElementById("ageDisp").innerText = person1.age;
+          document.getElementById("genderDisp").innerText = person1.gender;
+          document.getElementById("deptDisp").innerText = person1.dept;
+          document.getElementById("salDisp").innerText = person1.salary;
+        }
+      </script>
+    </div>
+  </body>
+</html>

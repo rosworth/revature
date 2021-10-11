@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ"
+      crossorigin="anonymous"
+    ></script>
+
+    <title>Event Listener</title>
+  </head>
+
+  <body>
+    <p id="demo">placeholder text</p>
+    <button id="b1">click</button>
+    <script>
+      document.getElementById("demo").addEventListener("click", func2);
+      function func2() {
+        alert(
+          "Length of string is " +
+            document.getElementById("demo").innerText.length
+        );
+      }
+      document.getElementById("b1").addEventListener("click", func1);
+      function func1() {
+        alert("clicked.");
+        document.getElementById("demo").innerHTML = document
+          .getElementById("demo")
+          .innerHTML.toUpperCase();
+      }
+    </script>
+
+    <div>
+      <input id="x" type="number" />
+      <input id="y" type="number" />
+      <button id="sum">sum event</button>
+      <script>
+        document.getElementById("sum").addEventListener("click", sum1);
+        function sum1() {
+          const x = document.getElementById("x").value;
+          const y = document.getElementById("y").value;
+          const sum = parseInt(x) + parseInt(y);
+          alert(`The sum of ${x} and ${y} is ${sum}`);
+        }
+      </script>
+    </div>
+  </body>
+</html>
